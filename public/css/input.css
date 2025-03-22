@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Averia+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: "Averia Libre", serif;
+}
+
+.navbar-fixed {
+    @apply fixed z-[9999] bg-white;
+    backdrop-filter: blur(5px);
+    box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.2);
+}
+
+.hamburger-line {
+    @apply w-[30px] h-[2px] my-2 block bg-[#303129];
+}
+
+.hamburger-active > span:nth-child(1) {
+    @apply rotate-45;
+}
+
+.hamburger-active > span:nth-child(2) {
+    @apply scale-0;
+}
+
+.hamburger-active > span:nth-child(3) {
+    @apply -rotate-45;
+}
+
+@layer utilities {
+    .nav::after {
+        content: '';
+        position: absolute;
+        bottom: 1px;
+        left: 0;
+        width: 0;
+        height: 2.5px;
+        background-color: #4C662B;
+        transition: width 0.5s ease;
+    }
+
+    .nav:hover::after {
+        width: 100%;
+    }
+
+    .nav-drop::after {
+        content: '';
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        width: 0;
+        height: 2.5px;
+        background-color: #4C662B;
+        transition: width 0.5s ease;
+    }
+
+    .nav-drop:hover::after {
+        width: 100%;
+    }
+
+    .active::after {
+        width: 100%;
+    }
+}
